@@ -1,0 +1,288 @@
+/* Fuente Starjedi */
+@font-face {
+    font-family: 'Starjedi';
+    src: url('./fonts/Starjedi.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Fuente Starjhol */
+@font-face {
+    font-family: 'Starjhol';
+    src: url('./fonts/Starjhol.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+   
+    overflow-x: hidden; /* evita scroll horizontal */ 
+}
+
+ .presentacion { 
+    
+    background-image: url(asset/starwars2.jpeg);
+    background-size: cover;       
+    background-repeat: no-repeat;
+    background-position: center top; /* centra la imagen */
+   min-height: 100vh; /* ocupa toda la altura de la ventana */
+   height: auto;
+box-sizing: content-box;
+    display: flex;
+    justify-content: flex-start; /* mueve todo a la izquierda */
+    padding: 20px; /* separa un poco del borde */  
+}
+
+ .presentacion__contenido {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5% /* ajusta según lo que necesites */
+    
+}
+
+.presentacion__contenido__titulo {
+    font-size: clamp(2rem, 8vw, 6rem); 
+    /* tamaño fluido: min 2rem, escala hasta 6rem en pantallas grandes */
+    text-align: center;
+}
+
+
+  /*.presentacion__contenido__parrafo {
+    font-size: 5px;
+    font-family: 'Starjedi';
+    color: #1E90FF;
+    text-align: left;
+    margin-top: 50%;
+    margin-left:  80% ;
+    
+}
+    /*==============================*/
+   
+.imagen__presentacion {
+    max-width: 90%;  /* nunca más ancho que el viewport */
+    height: auto;    /* mantiene proporción */
+    margin: 20px auto;
+}
+    
+
+
+/* ===================== */
+/* TEXTO ESTILO STAR WARS */
+/* ===================== */
+
+.starwars-text {
+    perspective: 500px; /* profundidad */
+    width: 100%;
+    overflow: hidden; /* evita scroll horizontal */
+}
+
+.starwars-text p {
+    transform: rotateX(25deg); /* inclina el texto hacia atrás */
+    transform-origin: bottom;   /* origen de la transformación */
+    font-size: 45px; /* ajusta según tu título */
+    font-family: 'Starjhol'; /* tu fuente Star Wars */
+    color: #FFD700; /* color amarillo estilo intro */
+    text-align: center; /* opcional, centra el texto */
+    animation: scroll 10s linear infinite; /* animación de desplazamiento */
+}
+
+/* Animación para que el texto se mueva hacia arriba */
+@keyframes scroll {
+    0% {
+        transform: rotateX(25deg) translateY(100%);
+    }
+    100% {
+        transform: rotateX(25deg) translateY(-100%);
+    }
+}
+.presentacion__contenido__boton {
+    display: block;        /* ocupa su propio “bloque” */
+    justify-content: center;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    cursor: pointer;
+    color: #FFD700;
+    background-color: black;
+    border-style: ridge;
+    border-color: #FFD700;
+    font-family: "Starjedi";
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    /* Efecto cuando se presiona (click) */
+    text-align: center;
+    margin-top: 50px;
+    width: clamp(200px, 60%, 300px); /* ancho adaptable */
+    margin: 20px auto; 
+    padding: 10px 20px; /* cómodo, sin exceder */
+    box-sizing: border-box; /* incluye padding dentro del ancho */
+
+}
+
+    
+
+
+
+
+.presentacion__contenido__boton:active {
+    transform: scale(0.95);  /* efecto de presionar */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Mantener el botón visible incluso deshabilitado */
+.presentacion__contenido__boton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none; /* evita clicks, pero sigue ocupando espacio */
+}
+
+
+/* Pie de página */
+.pie__de__pagina {
+      
+    padding: 20px 0;
+    margin-top: 50px;
+    color: #FFD700;
+    text-align: center;
+    font-family: 'Starjedi';
+    justify-content: center;
+    font-size: clamp(1rem, 4vw, 2.5rem);
+    text-align: center;
+    margin: 20px auto 0;
+}
+
+ :hover {color:aqua;}
+ :hover {font-family:"Starjhol"}
+
+/* Media queries para responsive */
+@media (max-width: 1200px) {
+    .presentacion {
+        padding: 5% 5% 0 5%;
+        max-width: 90%;
+        gap: 15px;
+    }
+
+    .presentacion__contenido__titulo {
+        font-size: 35px;
+        text-align: center; /* opcional para centrar en pantallas más pequeñas */
+    }
+
+    .presentacion__contenido__parrafo {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .pie__de__pagina {
+        font-size: 28px;
+    }
+}
+@media (max-width: 768px) {
+    .presentacion {
+        padding: 10px; 
+        justify-content: center; /* centra todo el contenido */
+        align-items: center;
+        text-align: center;
+    }
+
+    .presentacion__contenido {
+        padding-left: 0; 
+        align-items: center; /* centra elementos */
+    }
+
+    .presentacion__contenido__titulo {
+        font-size: 40px; /* más chico para celular */
+    }
+
+    .presentacion__contenido__parrafo {
+        font-size: 18px;
+        margin-left: 0; 
+        text-align: center;
+    }
+
+    .imagen__presentacion {
+        width: 80%;   /* ocupa el 80% del ancho de pantalla */
+        height: auto; /* mantiene proporciones */
+        margin: 20px auto; /* centrada */
+    }
+
+    
+    .presentacion__contenido__boton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box; /* incluye padding dentro del ancho */
+}
+
+    .pie__de__pagina {
+        font-size: 18px;
+        text-align: center;
+        margin-left: 0;
+    }
+}
+@media (max-width: 1200px) {
+           
+           .encabezado{
+           padding: 10%; 
+           }
+
+           .menu__encabezado{
+            justify-content: center;
+           }
+  .presentacion {
+    flex-direction: column-reverse;
+    padding: 5%;
+    
+  }
+  .presentacion__contenido{
+    width: auto;
+    
+}
+.presentacion__contenido__titulo{
+    justify-content: center;
+}
+
+.presentacion__contenido__parrafo{
+    justify-content: center;
+}
+}     
+    /* Para pantallas chicas asegurar que el contenido no se desborde */
+@media (max-width: 768px) {
+    .presentacion__contenido {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}/* ===================== */
+/* AJUSTES PARA ELIMINAR LINEA BLANCA Y MEJORAR RESPONSIVIDAD */
+/* ===================== */
+
+/* Asegura que la sección principal nunca sobresalga del viewport */
+.presentacion {
+    max-width: 100vw; /* nunca más ancho que la ventana */
+    overflow-x: hidden; /* evita scroll horizontal */
+}
+
+
+/* Para pantallas muy pequeñas, ajustar padding y centrado */
+@media (max-width: 480px) {
+    .presentacion {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .presentacion__contenido {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .presentacion__contenido__boton {
+        width: 90%; /* ancho adaptable */
+    }
+}
